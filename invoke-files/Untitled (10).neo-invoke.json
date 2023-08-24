@@ -1,0 +1,12 @@
+[
+  {
+    "contract": "MetatransationContract",
+    "operation": "compareHash",
+    "args": [
+      "hi",
+      "hi",
+      "hi",
+      "hihihi"
+    ]
+  }
+]

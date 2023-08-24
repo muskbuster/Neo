@@ -1,0 +1,16 @@
+[
+  {
+    "contract": "MetatransationContract",
+    "operation": "compar",
+    "args": [
+      "hi",
+      "hi",
+      "hi",
+      "hihihi"
+    ]
+  },
+  {
+    "contract": "MetatransationContract",
+    "operation": ""
+  }
+]

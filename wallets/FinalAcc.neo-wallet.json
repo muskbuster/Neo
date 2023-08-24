@@ -1,0 +1,29 @@
+{
+  "name": "FinalAcc",
+  "version": "1.0",
+  "scrypt": {
+    "n": 16384,
+    "r": 8,
+    "p": 8,
+    "size": 64
+  },
+  "accounts": [
+    {
+      "address": "NM2ro24GJ7mkeFk4wkucXY6v533pc6NH4B",
+      "label": "Default account",
+      "isDefault": true,
+      "lock": false,
+      "key": "6PYMEzQbnzH8B51diMHMipLjCxPF6hdXz9xb4gxCyqq37r7kVhLVA9LkaJ",
+      "contract": {
+        "script": "DCED+nDEQWy4lXXyCVAiE8NeSAfBL+rdShqavUT44hy8ByNBVuezJw==",
+        "parameters": [
+          {
+            "name": "signature",
+            "type": "Signature"
+          }
+        ],
+        "deployed": false
+      }
+    }
+  ]
+}
