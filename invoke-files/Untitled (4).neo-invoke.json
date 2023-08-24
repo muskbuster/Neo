@@ -1,0 +1,12 @@
+[
+  {
+    "contract": "CryptoLib",
+    "operation": "verifySignatureWithECDsa",
+    "args": [
+      "",
+      "",
+      "",
+      ""
+    ]
+  }
+]

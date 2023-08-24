@@ -56,23 +56,11 @@ namespace MetatransationTests
             // loads them into the engine and executes it 
             using var engine = new TestApplicationEngine(snapshot, settings, alice);
 
-            engine.ExecuteScript<MetatransationContract>(c => c.changeNumber(42));
+            engine.ExecuteScript<MetatransationContract>(c => c.verifySignatureWithECDsa(null, null, null, 22));
 
             engine.State.Should().Be(VMState.HALT);
             engine.ResultStack.Should().HaveCount(1);
             engine.ResultStack.Peek(0).Should().BeTrue();
-
-            // ensure that notification is triggered
-            engine.Notifications.Should().HaveCount(1);
-            engine.Notifications[0].EventName.Should().Be("NumberChanged");
-            engine.Notifications[0].State[0].Should().BeEquivalentTo(alice);
-            engine.Notifications[0].State[1].Should().BeEquivalentTo(42);
-
-            // ensure correct storage item was created 
-            var storages = snapshot.GetContractStorages<MetatransationContract>();
-            var contractStorage = storages.StorageMap(NUMBER_STORAGE_PREFIX);
-            contractStorage.TryGetValue(alice, out var item).Should().BeTrue();
-            item!.Should().Be(42);
         }
     }
 }
