@@ -37,6 +37,24 @@
       }
     }
   ],
-  "wallets": [],
+  "wallets": [
+    {
+      "name": "sudeep",
+      "accounts": [
+        {
+          "private-key": "a706d3a5fe19e97f8f9d2c21e9c931bed14fee560325a5c0803db06e8fe5cf68",
+          "script-hash": "NNdSMFgetAsrEcQMzBJ4m4qHiAJod2zGe4",
+          "label": null,
+          "is-default": true,
+          "contract": {
+            "script": "0c2103794b206bd8e3b88981d3928549b6bbd9296694a06e92e69ddd2bc92b2de928634156e7b327",
+            "parameters": [
+              "Signature"
+            ]
+          }
+        }
+      ]
+    }
+  ],
   "settings": {}
 }

@@ -1,0 +1,14 @@
+[
+  {
+    "contract": "MetatransationContract",
+    "operation": "ExecuteFunction",
+    "args": [
+      "NhTCYFnh6ZcdEpcU6TcWKyTWfdzJFDUMjW ",
+      "0x49cf4e5378ffcd4dec034fd98a174c5491e395e2",
+      "NhTCYFnh6ZcdEpcU6TcWKyTWfdzJFDUMjW",
+      "NhTCYFnh6ZcdEpcU6TcWKyTWfdzJFDUMjW",
+      "NhTCYFnh6ZcdEpcU6TcWKyTWfdzJFDUMjW",
+      "NhTCYFnh6ZcdEpcU6TcWKyTWfdzJFDUMjW"
+    ]
+  }
+]

@@ -1,0 +1,12 @@
+/workspaces/Neo/contracts/Metatransation/src/obj/Debug/net6.0/MetatransationContract.csproj.AssemblyReference.cache
+/workspaces/Neo/contracts/Metatransation/src/obj/Debug/net6.0/MetatransationContract.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/Neo/contracts/Metatransation/src/obj/Debug/net6.0/MetatransationContract.AssemblyInfoInputs.cache
+/workspaces/Neo/contracts/Metatransation/src/obj/Debug/net6.0/MetatransationContract.AssemblyInfo.cs
+/workspaces/Neo/contracts/Metatransation/src/obj/Debug/net6.0/MetatransationContract.csproj.CoreCompileInputs.cache
+/workspaces/Neo/contracts/Metatransation/src/bin/Debug/net6.0/MetatransationContract.deps.json
+/workspaces/Neo/contracts/Metatransation/src/bin/Debug/net6.0/MetatransationContract.dll
+/workspaces/Neo/contracts/Metatransation/src/bin/Debug/net6.0/MetatransationContract.pdb
+/workspaces/Neo/contracts/Metatransation/src/obj/Debug/net6.0/MetatransationContract.dll
+/workspaces/Neo/contracts/Metatransation/src/obj/Debug/net6.0/refint/MetatransationContract.dll
+/workspaces/Neo/contracts/Metatransation/src/obj/Debug/net6.0/MetatransationContract.pdb
+/workspaces/Neo/contracts/Metatransation/src/obj/Debug/net6.0/ref/MetatransationContract.dll
