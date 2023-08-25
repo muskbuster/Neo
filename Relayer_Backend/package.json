@@ -1,0 +1,15 @@
+{
+  "name": "relayer_backend",
+  "version": "1.0.0",
+  "description": "The Gasless transaction relayer",
+  "main": "index.js",
+  "scripts": {
+    "test": "begin"
+  },
+  "author": "Sudeep",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-kms": "^3.398.0",
+    "@cityofzion/neon-js": "^5.5.0"
+  }
+}
