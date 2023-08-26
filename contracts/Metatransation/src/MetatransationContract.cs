@@ -18,7 +18,7 @@ namespace Metatransation
     {
 // An event after the function is executed
         [DisplayName("FunctionExecuted")]
-        public static event Action<byte[], byte[], byte[], byte[]> FunctionExecuted;
+        public static event Action<byte[], byte[]> FunctionExecuted;
         // To create a function to handle metatransaction, we need a function which takes the following params
         // 1. byte[] sender
         // 2. byte[] datahash --this is the datahash stored when signature is takn offchain
@@ -34,23 +34,22 @@ namespace Metatransation
     }
 
         // Now to take input variables of different types and to validate them against the datahash and signature, we need to create a function which takes the following params
-        public static bool CompareHash(byte[] inputData1, byte[] inputData2, byte[] inputData3, ByteString givenHash)
+        public static bool CompareHash(byte[] inputData1, ByteString givenHash)
 {
-    byte[] combinedInput = inputData1.Concat(inputData2);
-     byte[] combinedInput2 = combinedInput.Concat(inputData3);
-    ByteString hashedInput = CryptoLib.Sha256(Helper.ToByteString(combinedInput2));
+    
+    ByteString hashedInput = CryptoLib.Sha256(Helper.ToByteString(inputData1));
     return hashedInput == givenHash; // returns true if the hash of the combined input is equal to the given hash
 }
 
 // Main logic to execute the function only if the datahash and signature are valid -> inputs may not bein bytes so needs conversion
 
-public static bool ExecuteFunction(Neo.Cryptography.ECC.ECPoint sender, ByteString dataHash, ByteString signature, BigInteger inputData1, byte[] inputData2, byte[] inputData3)
+public static bool ExecuteFunction(Neo.Cryptography.ECC.ECPoint sender, ByteString  dataHash, ByteString signature, BigInteger inputData1)
 {
     // convert the inputs to bytes
     byte[] inputData1Bytes = inputData1.ToByteArray();
     byte[] DataBytes = Helper.ToByteArray(dataHash);
     // call the hash comparison function
-    bool hashComparison = CompareHash(inputData1Bytes, inputData2, inputData3, dataHash);
+    bool hashComparison = CompareHash(inputData1Bytes,dataHash);
     // check that bool must be true for the function to execute
     if(!hashComparison) throw new Exception("Invalid datahash");
 
@@ -59,9 +58,9 @@ public static bool ExecuteFunction(Neo.Cryptography.ECC.ECPoint sender, ByteStri
     // check that bool must be true for the function to execute
     if(!signatureVerification) throw new Exception("Invalid signature"); 
     // if both the above bools are true, then execute the function to write to storage
-    Storage.Put(Storage.CurrentContext, inputData1Bytes, inputData2);
+    Storage.Put(Storage.CurrentContext, inputData1Bytes, inputData1Bytes);
     //emit the event
-    FunctionExecuted(DataBytes, inputData1Bytes, inputData2, inputData3);
+    FunctionExecuted(DataBytes, inputData1Bytes);
     return true;
     
 }

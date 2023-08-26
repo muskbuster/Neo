@@ -14,10 +14,10 @@ namespace MetatransationTests {
     [System.ComponentModel.Description("MetatransationContract")]
     interface MetatransationContract {
         bool verifySignatureWithECDsa(byte[] message, Neo.Cryptography.ECC.ECPoint pubkey, byte[] signature, System.Numerics.BigInteger curve);
-        bool compareHash(byte[] inputData1, byte[] inputData2, byte[] inputData3, byte[] givenHash);
-        bool executeFunction(Neo.Cryptography.ECC.ECPoint sender, byte[] dataHash, byte[] signature, System.Numerics.BigInteger inputData1, byte[] inputData2, byte[] inputData3);
+        bool compareHash(byte[] inputData1, byte[] givenHash);
+        bool executeFunction(Neo.Cryptography.ECC.ECPoint sender, byte[] dataHash, byte[] signature, System.Numerics.BigInteger inputData1);
         interface Events {
-            void FunctionExecuted(byte[] arg1, byte[] arg2, byte[] arg3, byte[] arg4);
+            void FunctionExecuted(byte[] arg1, byte[] arg2);
         }
     }
 }
