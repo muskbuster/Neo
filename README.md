@@ -29,7 +29,8 @@ The host funds the KMS with some GAS and it will consume it for every transactio
 ### Tech stack used
 - **Neo N3** our MVP for smartContracts ! -->C#
 - **AWS KMS** for signing ! --> API
-- **StackOS to** host em relayers!-->Express and react Apps 
+- **StackOS to** host em relayers!-->Express and react Apps
+- **NeoLine Wallet** --> signer Client  
 - **Docker** coz why not ?!
 
 
