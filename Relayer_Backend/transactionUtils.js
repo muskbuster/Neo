@@ -30,10 +30,10 @@ async function signWithKMS(message) {
     scriptHash: '0x7203d97ab14fd45b547c30b3f25548130c336100',
     operation: 'executeFunction',
     args: [
-      neonjs.default.create.contractParam("PublicKey", "03e20a907a0b5d0e4bbf1af9b0e609803bc141998d9a11d7d770f75d7e2fa1bb56"),
-      neonjs.default.create.contractParam("ByteArray", "010101"), // Corrected hexadecimal string
-      neonjs.default.create.contractParam("ByteArray", "010101"),
-      neonjs.default.create.contractParam("Integer", 10),
+      neonjs.default.create.contractParam("PublicKey", sender),
+      neonjs.default.create.contractParam("ByteArray", Datahash), // Corrected hexadecimal string
+      neonjs.default.create.contractParam("ByteArray", signature1),
+      neonjs.default.create.contractParam("Integer", inputData1),
     ]
   });
   console.log(script);
@@ -43,7 +43,7 @@ async function signWithKMS(message) {
 vars.tx = new tx.Transaction ({
   signers: [
     {
-    account: '',
+    account: 'NRxkCAWZoYVT37aYrpMt82RrLC8fCZCXxG',
     scopes: tx.WitnessScope.CalledByEntry,
   },
   ],
@@ -58,10 +58,11 @@ serialsig=vars.tx.serialize(true);
   console.log("------------------------------------------");
   console.log("------------------------------------------");
   console.log(signature);
-  //create the transaction
-  // Create a transaction object
-const result = await rpcClient.sendRawTransaction(signature);
-console.log(result);
+  //dispatch the rawtransaction
+  const response = await rpcClient.sendRawTransaction(vars.tx.serialize(true));
+  console.log("\u001b[32m  ✓ Transaction dispatched \u001b[0m");
+  console.log("------------------------------------------");
+console.log("\u001b[32m  ✓ Transaction signed and dispatched\u001b[0m");
 
 }
 

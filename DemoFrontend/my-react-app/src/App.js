@@ -38,46 +38,54 @@ function App() {
         setError("Neoline not ready");
         return;
       }
-  
+
       const { publicKey } = await neoline.getPublicKey();
-  
+
       if (!publicKey) {
         setError("Please connect and fetch public key");
         return;
       }
-  
+
       const message = inputData1;
-  
+
       const encoder = new TextEncoder();
       const messageBytes = encoder.encode(message);
       const messageHex = u.ab2hexstring(messageBytes);
-  
+
       const lengthHex = u.num2VarInt(messageHex.length / 2);
       const concatenatedString = lengthHex + messageHex;
       const serializedTransaction = "010001f0" + concatenatedString + "0000";
-  
+
       const signedData = wallet.sign(serializedTransaction, publicKey);
-  
+
       const inputDataValue = parseInt(inputData1);
-      
+
       const data = {
         message: message,
         publicKey: publicKey,
         data: signedData,
       };
-  
+
       setSignedMessageData(data);
       const requestData = {
         sender: publicKey,
-        DataHash: messageHex,
+        Datahash: messageHex,
         inputData1: inputDataValue,
         signature1: signedData,
       };
-  
-      const response = await axios.post(apiUrl, requestData);
-      console.log("API Response:", response.data);
-  
- // Move this line before the axios call
+      // const apiUrl = "https://fictional-waffle-v5jgr976pr6fxwp6-3003.app.github.dev/invoke";
+      // const response = await axios.post(apiUrl, requestData);
+      // console.log("API Response:", response.data);
+
+      await fetch("https://fictional-waffle-v5jgr976pr6fxwp6-3003.app.github.dev/invoke",{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestData)
+      }).then((response) => response.json())
+
+      // Move this line before the axios call
       setError("");
     } catch (error) {
       setError("Failed to sign message or invoke API");
