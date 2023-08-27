@@ -77,10 +77,11 @@ function App() {
       // const response = await axios.post(apiUrl, requestData);
       // console.log("API Response:", response.data);
 
-      await fetch("https://fictional-waffle-v5jgr976pr6fxwp6-3003.app.github.dev/invoke",{
+      await fetch("https://relayer-n52-marvel.stackos.io/invoke",{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
+          
         },
         body: JSON.stringify(requestData)
       }).then((response) => response.json())
