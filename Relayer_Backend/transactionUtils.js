@@ -3,9 +3,9 @@ const neonjs = require('@cityofzion/neon-js');
 const { default: Neon, tx, rpc, u } = require("@cityofzion/neon-js");
 const rpcClient = new rpc.RPCClient("http://seed2t5.neo.org:20332");
 AWS.config.update({
-  accessKeyId: 'AKIA3KF6B62DPYNFR3DW',
-  secretAccessKey:'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',
-  region: 'us-east-1'
+  accessKeyId: 'PUT_ACCESS_ID_HERE',
+  secretAccessKey:'PUt_SECRET_KEY_HERE',
+  region: 'REGION'
 });
 const vars = {};
 
@@ -27,7 +27,7 @@ async function signWithKMS(message) {
  async function invokeContract( sender,Datahash,inputData1,signature1) {
 
   const script = neonjs.sc.createScript({
-    scriptHash: '0x7203d97ab14fd45b547c30b3f25548130c336100',
+    scriptHash: '0x752a548d032b4c5e0bbf1d12d5a461e706e77ddd',
     operation: 'executeFunction',
     args: [
       neonjs.default.create.contractParam("PublicKey", sender),
